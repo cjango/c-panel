@@ -39,7 +39,7 @@ class ServiceProvider extends LaravelServiceProvider
         $this->publishes([__DIR__ . '/../resources/assets' => public_path('assets/cpanel')]);
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'CPanel');
-        // $this->loadMigrationsFrom(__DIR__ . '/Resources/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
     }
 
     public function register()

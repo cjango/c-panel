@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="renderer" content="webkit" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <title>{{ config('app.name', '') }} 系统管理</title>
+    <title>{{ config('cpanel.title', '') }} 系统管理</title>
     <link rel="stylesheet" href="{{ asset('assets/cpanel/css/bootstrap.min.css?v=3.3.6') }}" />
     <link rel="stylesheet" href="{{ asset('assets/cpanel/css/font-awesome.min.css?v=4.4.0') }}" />
     <link rel="stylesheet" href="{{ asset('assets/cpanel/css/animate.min.css') }}" />
