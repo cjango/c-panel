@@ -1,11 +1,11 @@
 <?php
 
-function cpanel_path()
+function admin_path($file = null)
 {
-    return app_apth('Admin');
+    return app_path('Admin') . (!is_null($file) ? '/' . ltrim($file, '/') : '');
 }
 
-function cpanel_assets($file)
+function admin_assets($file)
 {
     return asset('assets/cpanel/' . $file);
 }

@@ -7,13 +7,13 @@
     <meta name="renderer" content="webkit" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <title>{{ config('cpanel.title', '') }} 系统管理</title>
-    <link rel="stylesheet" href="{{ asset('assets/cpanel/css/bootstrap.min.css?v=3.3.6') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/cpanel/css/font-awesome.min.css?v=4.4.0') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/cpanel/css/animate.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/cpanel/css/style.min.css?v=4.1.0') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/cpanel/css/plugins/sweetalert/sweetalert.css') }}" />
+    <link rel="stylesheet" href="{{ admin_assets('css/bootstrap.min.css?v=3.3.6') }}" />
+    <link rel="stylesheet" href="{{ admin_assets('css/font-awesome.min.css?v=4.4.0') }}" />
+    <link rel="stylesheet" href="{{ admin_assets('css/animate.min.css') }}" />
+    <link rel="stylesheet" href="{{ admin_assets('css/style.min.css?v=4.1.0') }}" />
+    <link rel="stylesheet" href="{{ admin_assets('css/plugins/sweetalert/sweetalert.css') }}" />
 
-    <script type="text/javascript" src="{{ asset('assets/cpanel/js/jquery.min.js?v=2.1.4') }}"></script>
+    <script type="text/javascript" src="{{ admin_assets('js/jquery.min.js?v=2.1.4') }}"></script>
 </head>
 
 <body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
@@ -64,15 +64,15 @@
         <!--右侧部分结束-->
     </div>
 
-    <script type="text/javascript" src="{{ asset('assets/cpanel/js/bootstrap.min.js?v=3.3.6') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/cpanel/js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/cpanel/js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/cpanel/js/plugins/layer/layer.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/cpanel/js/hplus.min.js?v=4.1.0') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/cpanel/js/plugins/sweetalert/sweetalert.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/cpanel/js/plugins/layer/layer.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/cpanel/js/contabs.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/cpanel/js/common.js') }}"></script>
+    <script type="text/javascript" src="{{ admin_assets('js/bootstrap.min.js?v=3.3.6') }}"></script>
+    <script type="text/javascript" src="{{ admin_assets('js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
+    <script type="text/javascript" src="{{ admin_assets('js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+    <script type="text/javascript" src="{{ admin_assets('js/plugins/layer/layer.min.js') }}"></script>
+    <script type="text/javascript" src="{{ admin_assets('js/hplus.min.js?v=4.1.0') }}"></script>
+    <script type="text/javascript" src="{{ admin_assets('js/plugins/sweetalert/sweetalert.min.js') }}"></script>
+    <script type="text/javascript" src="{{ admin_assets('js/plugins/layer/layer.min.js') }}"></script>
+    <script type="text/javascript" src="{{ admin_assets('js/contabs.min.js') }}"></script>
+    <script type="text/javascript" src="{{ admin_assets('js/common.js') }}"></script>
 </body>
 
 </html>

@@ -52,7 +52,7 @@
             </form>
         </div>
     </div>
-    <script type="text/javascript" src="{{ asset('assets/cpanel/js/plugins/layui/layui.js') }}"></script>
+    <script type="text/javascript" src="{{ admin_assets('js/plugins/layui/layui.js') }}"></script>
     <script>
         layui.use(['form'], function() {
             var $ = layui.jquery, form = layui.form();

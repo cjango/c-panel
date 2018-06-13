@@ -54,6 +54,8 @@ class ServiceProvider extends LaravelServiceProvider
         $this->registerRouteMiddleware();
         // 注册基础路由
         $this->registerAuthRoutes();
+        // 加载自定义路由配置
+        $this->loadAdminRoutes();
     }
 
     protected function loadAdminAuthConfig()
@@ -95,10 +97,10 @@ class ServiceProvider extends LaravelServiceProvider
 
     protected function loadAdminRoutes()
     {
-        Route::middleware('web', 'cpanel.logs')
+        Route::middleware('web')
             ->prefix(config('cpanel.route.prefix'))
             ->name('CPanel.')
             ->namespace('App\Admin\Controllers')
-            ->group(app_path('Admin/routes.php'));
+            ->group(admin_path('routes.php'));
     }
 }
