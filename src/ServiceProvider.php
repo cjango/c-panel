@@ -99,6 +99,6 @@ class ServiceProvider extends LaravelServiceProvider
             ->prefix(config('cpanel.route.prefix'))
             ->name('CPanel.')
             ->namespace('App\Admin\Controllers')
-            ->group(__DIR__ . '/routes.php');
+            ->group(app_path('Admin/routes.php'));
     }
 }
