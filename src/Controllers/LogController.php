@@ -16,7 +16,7 @@ class LogController extends Controller
             return $query->whereHas('user', function ($query) use ($keyword) {
                 return $query->where('username', $keyword);
             });
-        })->orderBy('id', 'desc')->paginate();
+        })->with('admin')->orderBy('id', 'desc')->paginate();
         return view('CPanel::logs.index', compact('logs'));
     }
 }
