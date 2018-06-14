@@ -48,11 +48,11 @@
                         <li class="J_tabCloseOther"><a>关闭其他选项卡</a></li>
                     </ul>
                 </div>
-                <a href="javascript:void(0);" data-href="auth/logout" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i>&nbsp;退出</a>
+                <a href="javascript:void(0);" data-href="/{{ config('cpanel.route.prefix') }}/auth/logout" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i>&nbsp;退出</a>
             </div>
 
             <div class="row J_mainContent" id="content-main">
-                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="dashboard" frameborder="0" data-id="dashboard" seamless></iframe>
+                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="/{{ config('cpanel.route.prefix') }}/dashboard" frameborder="0" data-id="/{{ config('cpanel.route.prefix') }}/dashboard" seamless></iframe>
             </div>
 
             <div class="footer">

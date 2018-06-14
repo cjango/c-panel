@@ -15,7 +15,7 @@
                         </span>
                     </a>
                     <ul class="dropdown-menu m-t-xs">
-                        <li><a href="password" id="password">修改密码</a></li>
+                        <li><a href="/{{ config('cpanel.route.prefix') }}/password" id="password">修改密码</a></li>
                     </ul>
                 </div>
                 <div class="logo-element">Cs</div>
@@ -30,7 +30,7 @@
                 <ul class="nav nav-second-level">
                     @foreach ($menu['children'] as $children)
                     <li>
-                        <a class="J_menuItem" href="{{ $children['uri'] }}"><i class="fa {{ $children['icon'] }}"></i> {{ $children['title'] }}</a>
+                        <a class="J_menuItem" href="/{{ config('cpanel.route.prefix') }}/{{ $children['uri'] }}"><i class="fa {{ $children['icon'] }}"></i> {{ $children['title'] }}</a>
                     </li>
                     @endforeach
                 </ul>

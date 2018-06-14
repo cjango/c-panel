@@ -15,18 +15,12 @@ class ServiceProvider extends LaravelServiceProvider
         'cpanel.logs'  => Middleware\UserLog::class,
     ];
 
-    /**
-     * The application's route middleware groups.
-     * @var array
-     */
     protected $middlewareGroups = [
-        'cpanel' => [
-            // 'admin.auth',
-            // 'admin.pjax',
-            // 'admin.log',
-            // 'admin.bootstrap',
-            // 'admin.permission',
-        ],
+        // 'cpanel' => [
+        //     'cpanel.auth',
+        //     'cpanel.guest',
+        //     'cpanel.logs',
+        // ],
     ];
 
     public function boot()
@@ -53,7 +47,7 @@ class ServiceProvider extends LaravelServiceProvider
         // 注册中间件
         $this->registerRouteMiddleware();
         // 注册基础路由
-        $this->registerAuthRoutes();
+        $this->registerBaseRoutes();
         // 加载自定义路由配置
         $this->loadAdminRoutes();
     }
@@ -74,7 +68,7 @@ class ServiceProvider extends LaravelServiceProvider
         }
     }
 
-    protected function registerAuthRoutes()
+    protected function registerBaseRoutes()
     {
         Route::middleware('web')
             ->prefix(config('cpanel.route.prefix'))
