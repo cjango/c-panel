@@ -22,7 +22,6 @@ class InitCommand extends Command
             '--provider' => 'Spatie\Permission\PermissionServiceProvider',
             '--tag'      => 'migrations',
         ]);
-
         $this->call('vendor:publish', [
             '--provider' => 'Spatie\Permission\PermissionServiceProvider',
             '--tag'      => 'config',
@@ -38,7 +37,7 @@ class InitCommand extends Command
         $this->call('migrate');
 
         if (Admin::count() == 0) {
-            $this->call('db:seed', ['--class' => cjango\CPanel\Commands\AdminTablesSeeder::class]);
+            $this->call('db:seed', ['--class' => AdminTablesSeeder::class]);
         }
     }
 }

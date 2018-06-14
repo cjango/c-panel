@@ -19,8 +19,8 @@ class AdminTablesSeeder extends Seeder
         Admin::truncate();
         Admin::create([
             'username' => 'root',
-            'password' => bcrypt('111111'),
-            'name'     => 'Rooter',
+            'password' => '111111',
+            'nickname' => 'Rooter',
         ]);
 
         // add default menus.
@@ -31,30 +31,31 @@ class AdminTablesSeeder extends Seeder
                 'title'     => '系统管理',
                 'icon'      => 'fa-cogs',
                 'sort'      => 99,
+                'uri'       => null,
             ],
             [
-                'parent_id' => 0,
+                'parent_id' => 1,
                 'title'     => '用户管理',
                 'icon'      => 'fa-user',
                 'sort'      => 1,
                 'uri'       => 'admins',
             ],
             [
-                'parent_id' => 0,
+                'parent_id' => 1,
                 'title'     => '权限管理',
                 'icon'      => 'fa-group',
                 'sort'      => 2,
                 'uri'       => 'roles',
             ],
             [
-                'parent_id' => 0,
+                'parent_id' => 1,
                 'title'     => '菜单管理',
                 'icon'      => 'fa-bars',
                 'sort'      => 3,
                 'uri'       => 'menus',
             ],
             [
-                'parent_id' => 0,
+                'parent_id' => 1,
                 'title'     => '系统日志',
                 'icon'      => 'fa-list',
                 'sort'      => 4,
