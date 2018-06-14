@@ -3,6 +3,7 @@
 namespace cjango\CPanel;
 
 use cjango\CPanel\Commands\InitCommand;
+use cjango\CPanel\Facades\Admin;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
 
@@ -21,22 +22,19 @@ class ServiceProvider extends LaravelServiceProvider
         ],
     ];
 
+    protected $commands = [
+        InitCommand::class,
+    ];
+
     public function boot()
     {
-        $this->commands([
-            InitCommand::class,
-        ]);
-
-        $this->publishes([__DIR__ . '/../config/cpanel.php' => config_path('cpanel.php')]);
-        $this->publishes([__DIR__ . '/../resources/assets' => public_path('assets/cpanel')]);
+        $this->commands($this->commands);
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'CPanel');
 
-        if (is_dir(app_path('Admin/Views'))) {
-            $this->loadViewsFrom(app_path('Admin/Views'), 'Admin');
+        if (is_dir(admin_path('Views'))) {
+            $this->loadViewsFrom(admin_path('Views'), 'Admin');
         }
-
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
     }
 
     public function register()
@@ -50,7 +48,7 @@ class ServiceProvider extends LaravelServiceProvider
         // 注册中间件
         $this->registerRouteMiddleware();
         // 注册基础路由
-        $this->registerBaseRoutes();
+        Admin::registerRoutes();
         // 加载自定义路由配置
         $this->loadAdminRoutes();
     }
@@ -71,33 +69,14 @@ class ServiceProvider extends LaravelServiceProvider
         }
     }
 
-    protected function registerBaseRoutes()
-    {
-        Route::middleware(config('cpanel.route.middleware'))
-            ->prefix(config('cpanel.route.prefix'))
-            ->name('CPanel.')
-            ->namespace('cjango\CPanel\Controllers')
-            ->group(function ($router) {
-                $router->get('auth/login', 'AuthController@login');
-                $router->post('auth/login', 'AuthController@login');
-                $router->get('auth/logout', 'AuthController@logout');
-                $router->get('/', 'IndexController@index');
-                $router->get('password', 'IndexController@password');
-                $router->get('dashboard', 'IndexController@dashboard');
-
-                $router->match(['get', 'post'], 'menus/{pid}/sort', 'MenusController@sort')->name('menus.sort');
-                $router->resource('menus', 'MenuController');
-                $router->resource('roles', 'RoleController');
-                $router->get('logs', 'LogController@index');
-            });
-    }
-
     protected function loadAdminRoutes()
     {
-        Route::middleware(config('cpanel.route.middleware'))
-            ->prefix(config('cpanel.route.prefix'))
-            ->name('CPanel.')
-            ->namespace('App\Admin\Controllers')
-            ->group(admin_path('routes.php'));
+        if (file_exists(admin_path('routes.php'))) {
+            Route::middleware(config('cpanel.route.middleware'))
+                ->prefix(config('cpanel.route.prefix'))
+                ->name('CPanel.')
+                ->namespace('App\Admin\Controllers')
+                ->group(admin_path('routes.php'));
+        }
     }
 }
