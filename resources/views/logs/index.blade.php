@@ -32,7 +32,7 @@
                     @foreach ($logs as $log)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $log->user->username }}</td>
+                        <td>{{ $log->administrator->username }}</td>
                         <td>{{ $log->path }}</td>
                         <td>{!! $log->method !!}</td>
                         <td>{{ $log->ip }}</td>

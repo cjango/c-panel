@@ -10,12 +10,12 @@
                     <span><img alt="avatar" class="img-circle" src="{{ asset('assets/cpanel/img/avatar.jpg') }}" width="70" /></span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:void(0);">
                         <span class="clear">
-                            <span class="block m-t-xs"><strong class="font-bold">{{ Auth::guard('cpanel')->user()->nickname }}</strong></span>
-                            <span class="text-muted text-xs block">{{ Auth::guard('cpanel')->user()->username }} <b class="caret"></b> </span>
+                            <span class="block m-t-xs"><strong class="font-bold">{{ Admin::user()->nickname }}</strong></span>
+                            <span class="text-muted text-xs block">{{ Admin::user()->username }} <b class="caret"></b> </span>
                         </span>
                     </a>
                     <ul class="dropdown-menu m-t-xs">
-                        <li><a href="/{{ config('cpanel.route.prefix') }}/password" id="password">修改密码</a></li>
+                        <li><a href="{{ admin_url('password') }}" id="password">修改密码</a></li>
                     </ul>
                 </div>
                 <div class="logo-element">Cs</div>
@@ -30,7 +30,7 @@
                 <ul class="nav nav-second-level">
                     @foreach ($menu['children'] as $children)
                     <li>
-                        <a class="J_menuItem" href="/{{ config('cpanel.route.prefix') }}/{{ $children['uri'] }}"><i class="fa {{ $children['icon'] }}"></i> {{ $children['title'] }}</a>
+                        <a class="J_menuItem" href="{{ admin_url($children['uri']) }}"><i class="fa {{ $children['icon'] }}"></i> {{ $children['title'] }}</a>
                     </li>
                     @endforeach
                 </ul>

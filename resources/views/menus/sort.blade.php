@@ -19,7 +19,7 @@
 @endsection
 
 @push('script')
-<script src="{{ asset('assets/cpanel/js/plugins/nestable/jquery.nestable.js') }}"></script>
+<script src="{{ admin_assets('js/plugins/nestable/jquery.nestable.js') }}"></script>
 <script type="text/javascript">
     var sort = '';
     $('.dd').nestable({

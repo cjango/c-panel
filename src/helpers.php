@@ -9,3 +9,10 @@ function admin_assets($file)
 {
     return asset('assets/cpanel/' . $file);
 }
+
+function admin_url($path = '')
+{
+    $prefix = '/' . trim(config('cpanel.route.prefix'), '/');
+    $prefix = ($prefix == '/') ? '' : $prefix;
+    return $prefix . '/' . trim($path, '/');
+}

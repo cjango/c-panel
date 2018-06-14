@@ -2,7 +2,7 @@
 
 namespace cjango\CPanel\Controllers;
 
-use Auth;
+use Admin;
 use cjango\CPanel\Models\Menu;
 use cjango\CPanel\Requests\PasswordRequest;
 
@@ -23,7 +23,7 @@ class IndexController extends Controller
     public function password(PasswordRequest $request)
     {
         if ($request->isMethod('put')) {
-            $user = Auth::guard('admin')->user();
+            $user = Admin::user();
 
             $user->password = $request->repass;
             if ($user->save()) {

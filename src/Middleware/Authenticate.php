@@ -2,17 +2,38 @@
 
 namespace cjango\CPanel\Middleware;
 
+use Admin;
 use Closure;
-use Illuminate\Support\Facades\Auth;
 
 class Authenticate
 {
 
     public function handle($request, Closure $next)
     {
-        if (Auth::guard('cpanel')->guest()) {
+        if (Admin::guest() && !$this->shouldPassThrough($request)) {
             return redirect()->route('CPanel.login');
         }
+
         return $next($request);
+    }
+
+    protected function shouldPassThrough($request)
+    {
+        $excepts = [
+            admin_url('auth/login'),
+            admin_url('auth/logout'),
+        ];
+
+        foreach ($excepts as $except) {
+            if ($except !== '/') {
+                $except = trim($except, '/');
+            }
+
+            if ($request->is($except)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

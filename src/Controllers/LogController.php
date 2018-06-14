@@ -2,7 +2,7 @@
 
 namespace cjango\CPanel\Controllers;
 
-use cjango\CPanel\Models\Log;
+use cjango\CPanel\Models\AdminOperationLog;
 use Illuminate\Http\Request;
 
 class LogController extends Controller
@@ -12,7 +12,7 @@ class LogController extends Controller
     {
         $keyword = $request->keyword;
 
-        $logs = Log::when($keyword, function ($query) use ($keyword) {
+        $logs = AdminOperationLog::when($keyword, function ($query) use ($keyword) {
             return $query->whereHas('user', function ($query) use ($keyword) {
                 return $query->where('username', $keyword);
             });

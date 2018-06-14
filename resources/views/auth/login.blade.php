@@ -24,7 +24,7 @@
         <h1><span style="font-size: 84px;">{{ config('app.name', '') }} </span><span style="font-size:20px;">system</span></h1>
         <div class="enter">
             <h2 class="animated">Click&nbsp;&nbsp;Here&nbsp;&nbsp;To&nbsp;&nbsp;Login</h2>
-            <form action="{{ route('CPanel.login') }}" class="layui-form animated bounceInLeft" method="post">
+            <form action="{{ admin_url('login') }}" class="layui-form animated bounceInLeft" method="post">
                 <div class="layui-form-item">
                     <label class="login-icon"> <i class="layui-icon">&#xe612;</i> </label>
                     <input type="text" name="username" lay-verify="username" autocomplete="off" placeholder="请输入登录名" class="layui-input" value="" />

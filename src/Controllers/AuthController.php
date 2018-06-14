@@ -29,7 +29,7 @@ class AuthController extends Controller
             ];
             $remember = $request->remember ?: false;
             if (Auth::guard('cpanel')->attempt($certificates, $remember)) {
-                return $this->success('登录成功', '/' . config('cpanel.route.prefix'));
+                return $this->success('登录成功', '/' . admin_url());
             } else {
                 return $this->error('用户名或密码错误');
             }
@@ -42,6 +42,6 @@ class AuthController extends Controller
     {
         Auth::guard('cpanel')->logout();
         session()->flush();
-        return $this->success('注销成功', '/' . config('cpanel.route.prefix') . '/auth/login');
+        return $this->success('注销成功', admin_url('auth/login'));
     }
 }

@@ -49,8 +49,8 @@
 @endsection
 
 @push('script')
-<link rel="stylesheet" href="{{ asset('assets/admin/css/plugins/iCheck/custom.css') }}" />
-<script src="{{ asset('assets/admin/js/plugins/iCheck/icheck.min.js') }}"></script>
+<link rel="stylesheet" href="{{ admin_assets('css/plugins/iCheck/custom.css') }}" />
+<script src="{{ admin_assets('js/plugins/iCheck/icheck.min.js') }}"></script>
 <script type="text/javascript">
     $(".i-checks").iCheck({
         checkboxClass: "icheckbox_square-green"

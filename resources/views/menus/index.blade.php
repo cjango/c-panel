@@ -90,7 +90,7 @@
 @endsection
 
 @push('script')
-<script src="{{ asset('assets/cpanel/js/plugins/treeview/bootstrap-treeview.js') }}"></script>
+<script src="{{ admin_assets('js/plugins/treeview/bootstrap-treeview.js') }}"></script>
 <script type="text/javascript">
     $('#tree').treeview({data: {!! $menuTree !!}});
 </script>

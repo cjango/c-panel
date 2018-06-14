@@ -3,11 +3,11 @@
 @section('title', 'menu - create')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('assets/cpanel/css/plugins/iCheck/custom.css') }}" />
+<link rel="stylesheet" href="{{ admin_assets('css/plugins/iCheck/custom.css') }}" />
 @endsection
 
 @push('script')
-<script src="{{ asset('assets/cpanel/js/plugins/iCheck/icheck.min.js') }}"></script>
+<script src="{{ admin_assets('js/plugins/iCheck/icheck.min.js') }}"></script>
 <script>
     $(".i-checks").iCheck({checkboxClass:"icheckbox_square-green",radioClass:"iradio_square-green"});
 </script>

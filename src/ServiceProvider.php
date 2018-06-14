@@ -10,17 +10,15 @@ class ServiceProvider extends LaravelServiceProvider
 {
 
     protected $routeMiddleware = [
-        'cpanel.auth'  => Middleware\Authenticate::class,
-        'cpanel.guest' => Middleware\Guest::class,
-        'cpanel.logs'  => Middleware\UserLog::class,
+        'cpanel.auth' => Middleware\Authenticate::class,
+        'cpanel.log'  => Middleware\LogOperation::class,
     ];
 
     protected $middlewareGroups = [
-        // 'cpanel' => [
-        //     'cpanel.auth',
-        //     'cpanel.guest',
-        //     'cpanel.logs',
-        // ],
+        'cpanel' => [
+            'cpanel.auth',
+            'cpanel.log',
+        ],
     ];
 
     public function boot()
@@ -33,6 +31,11 @@ class ServiceProvider extends LaravelServiceProvider
         $this->publishes([__DIR__ . '/../resources/assets' => public_path('assets/cpanel')]);
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'CPanel');
+
+        if (is_dir(app_path('Admin/Views'))) {
+            $this->loadViewsFrom(app_path('Admin/Views'), 'Admin');
+        }
+
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
     }
 
@@ -70,7 +73,7 @@ class ServiceProvider extends LaravelServiceProvider
 
     protected function registerBaseRoutes()
     {
-        Route::middleware('web')
+        Route::middleware(config('cpanel.route.middleware'))
             ->prefix(config('cpanel.route.prefix'))
             ->name('CPanel.')
             ->namespace('cjango\CPanel\Controllers')
@@ -91,7 +94,7 @@ class ServiceProvider extends LaravelServiceProvider
 
     protected function loadAdminRoutes()
     {
-        Route::middleware('web')
+        Route::middleware(config('cpanel.route.middleware'))
             ->prefix(config('cpanel.route.prefix'))
             ->name('CPanel.')
             ->namespace('App\Admin\Controllers')

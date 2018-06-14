@@ -2,7 +2,7 @@
 
 namespace cjango\CPanel\Models;
 
-use Auth;
+use Admin;
 use cjango\CPanel\Extensions\Tree;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -25,11 +25,11 @@ class Menu extends Model
      */
     public static function adminShow()
     {
-        $administrator = Auth::guard('cpanel')->id() != 1;
+        $administrator = Admin::id() != 1;
 
         $list = self::when($administrator, function ($query) {
             $ruleIds = [];
-            $rules   = Auth::guard('admin')->user()->roles()->pluck('rules');
+            $rules   = Admin::user()->roles()->pluck('rules');
             foreach ($rules as $rule) {
                 $ruleIds = array_merge($ruleIds, $rule);
             }

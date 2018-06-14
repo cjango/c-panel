@@ -28,4 +28,9 @@ class Administrator extends Authenticatable
             $this->attributes['password'] = bcrypt($value);
         }
     }
+
+    public function operationLogs()
+    {
+        return $this->hasMany(AdminOperationLog::class);
+    }
 }

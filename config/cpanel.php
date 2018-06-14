@@ -6,7 +6,7 @@ return [
 
     'route' => [
         'prefix'     => 'admin',
-        'middleware' => ['web'],
+        'middleware' => ['web', 'cpanel'],
     ],
 
     'auth'  => [

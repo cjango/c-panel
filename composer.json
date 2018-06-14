@@ -26,7 +26,10 @@
         "laravel": {
             "providers": [
                 "cjango\\CPanel\\ServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Admin": "cjango\\CPanel\\Facades\\Admin"
+            }
         }
     }
 }
