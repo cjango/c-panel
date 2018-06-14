@@ -47,8 +47,8 @@ class AdminOperationLog extends Model
         }
     }
 
-    public function administrator()
+    public function admin()
     {
-        return $this->belongsTo(Administrator::class);
+        return $this->belongsTo(Admin::class);
     }
 }

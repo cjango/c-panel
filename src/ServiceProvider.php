@@ -35,6 +35,12 @@ class ServiceProvider extends LaravelServiceProvider
         if (is_dir(admin_path('Views'))) {
             $this->loadViewsFrom(admin_path('Views'), 'Admin');
         }
+
+        if ($this->app->runningInConsole()) {
+            $this->publishes([__DIR__ . '/../config/cpanel.php' => config_path('cpanel.php')]);
+            $this->publishes([__DIR__ . '/../resources/assets' => public_path('assets/cpanel')]);
+            $this->publishes([__DIR__ . '/../database/migrations' => database_path('migrations')]);
+        }
     }
 
     public function register()

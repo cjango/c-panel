@@ -11,7 +11,7 @@ class Authenticate
     public function handle($request, Closure $next)
     {
         if (Admin::guest() && !$this->shouldPassThrough($request)) {
-            return redirect()->route('CPanel.login');
+            return redirect(admin_url('auth/login'));
         }
 
         return $next($request);

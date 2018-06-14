@@ -20,7 +20,7 @@ return [
         'providers' => [
             'cpanel' => [
                 'driver' => 'eloquent',
-                'model'  => cjango\CPanel\Models\Administrator::class,
+                'model'  => cjango\CPanel\Models\Admin::class,
             ],
         ],
     ],
