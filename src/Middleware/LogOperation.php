@@ -25,7 +25,7 @@ class LogOperation
 
     private function shouldLogOperation(Request $request)
     {
-        return config('cpanel.logs.enable') && !$this->inExceptArray($request) && Admin::user();
+        return config('cpanel.logs.enable') && Admin::user() && !$this->inExceptArray($request);
     }
 
     private function inExceptArray($request)

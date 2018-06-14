@@ -78,7 +78,7 @@ class ServiceProvider extends LaravelServiceProvider
             ->name('CPanel.')
             ->namespace('cjango\CPanel\Controllers')
             ->group(function ($router) {
-                $router->get('auth/login', 'AuthController@login')->name('login');
+                $router->get('auth/login', 'AuthController@login');
                 $router->post('auth/login', 'AuthController@login');
                 $router->get('auth/logout', 'AuthController@logout');
                 $router->get('/', 'IndexController@index');
