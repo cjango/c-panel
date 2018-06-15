@@ -34,7 +34,7 @@
                 <button class="roll-nav roll-left J_tabLeft"><i class="fa fa-backward"></i></button>
                 <nav class="page-tabs J_menuTabs">
                     <div class="page-tabs-content">
-                        <a href="javascript:;" class="active J_menuTab" data-id="dashboard">首页</a>
+                        <a href="javascript:;" class="active J_menuTab" data-id="{{ admin_url('dashboard') }}">看板</a>
                     </div>
                 </nav>
                 <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i></button>
