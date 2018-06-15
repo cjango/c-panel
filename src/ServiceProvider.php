@@ -2,7 +2,8 @@
 
 namespace cjango\CPanel;
 
-use cjango\CPanel\Commands\InitCommand;
+use cjango\CPanel\Commands\InstallCommand;
+use cjango\CPanel\Commands\MakeCommand;
 use cjango\CPanel\Facades\Admin;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
@@ -23,7 +24,8 @@ class ServiceProvider extends LaravelServiceProvider
     ];
 
     protected $commands = [
-        InitCommand::class,
+        InstallCommand::class,
+        MakeCommand::class,
     ];
 
     public function boot()
