@@ -7,7 +7,7 @@
     <div class="ibox-content">
         <div class="row">
             <div class="col-sm-4 m-b">
-                <a class="btn btn-sm btn-primary" data-toggle="layer" data-height="510" href="{{ route('CPanel.admins.create') }}">
+                <a class="btn btn-sm btn-primary" data-toggle="layer" data-height="300" href="{{ route('CPanel.admins.create') }}">
                     <i class="fa fa-plus"></i>
                     新增用户
                 </a>
@@ -33,8 +33,8 @@
                         <th></th>
                         <th width="135">注册时间</th>
                         <th width="50">登录</th>
-                        <th width="135">上次登录</th>
                         <th width="120">上次登录IP</th>
+                        <th width="135">上次登录时间</th>
                         <th width="80"></th>
                     </tr>
                 </thead>
@@ -50,8 +50,14 @@
                         <td>{{ $admin->lastLogin->login_ip }}</td>
                         <td>{{ $admin->lastLogin->created_at }}</td>
                         <td>
-                            <a href="" title="编辑">编辑</a>
-                            <a href="" title="删除">删除</a>
+                            <a data-toggle="layer" data-height="300" href="{{ route('CPanel.admins.edit', $admin) }}" title="编辑用户">编辑</a>
+                            <form action="{{ route('CPanel.admins.destroy', $admin) }}" method="POST" style="display:inline">
+                                <a href="javascript:void(0);" class="ajax-post confirm">
+                                    删除
+                                </a>
+                                @csrf
+                                @method('DELETE')
+                            </form>
                         </td>
                     </tr>
                     @endforeach

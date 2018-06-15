@@ -22,10 +22,19 @@ class Admin extends Authenticatable
         'remember_token',
     ];
 
-    protected function setPasswordAttribute($value): void
+    protected function setPasswordAttribute($value)
     {
         if (!empty($value)) {
             $this->attributes['password'] = bcrypt($value);
+        }
+    }
+
+    protected function setNicknameAttribute($value)
+    {
+        if (empty($value)) {
+            $this->attributes['nickname'] = ucfirst($this->username);
+        } else {
+            $this->attributes['nickname'] = $value;
         }
     }
 

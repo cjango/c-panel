@@ -3,6 +3,7 @@
 namespace cjango\CPanel\Controllers;
 
 use cjango\CPanel\Models\Role;
+use cjango\CPanel\Requests\RoleRequest;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
@@ -14,16 +15,17 @@ class RoleController extends Controller
 
         $roles = Role::when($keyword, function ($query) use ($keyword) {
             return $query->where('name', 'like', "%{$keyword}%");
-        })->withCount('users')->paginate();
+        })->paginate();
         return view('CPanel::roles.index', compact('roles'));
     }
 
     public function create()
     {
-        return view('CPanel::roles.create');
+        $guards = array_keys(config('auth.guards'));
+        return view('CPanel::roles.create', compact('guards'));
     }
 
-    public function store(Request $request)
+    public function store(RoleRequest $request)
     {
         if (Role::create($request->all())) {
             return $this->success();
@@ -34,10 +36,11 @@ class RoleController extends Controller
 
     public function edit(Role $role)
     {
-        return view('CPanel::roles.edit', compact('role'));
+        $guards = array_keys(config('auth.guards'));
+        return view('CPanel::roles.edit', compact('guards', 'role'));
     }
 
-    public function update(Request $request, role $role)
+    public function update(RoleRequest $request, role $role)
     {
         if ($role->update($request->all())) {
             return $this->success();
@@ -48,10 +51,6 @@ class RoleController extends Controller
 
     public function destroy(Role $role)
     {
-        if ($role->users->count() > 0) {
-            return $this->error('分组下有授权的用户，不允许直接删除');
-        }
-
         if ($role->delete()) {
             return $this->success();
         } else {

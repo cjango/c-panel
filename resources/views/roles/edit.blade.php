@@ -13,7 +13,11 @@
     <div class="form-group">
         <label class="col-xs-3 control-label">指定看守器</label>
         <div class="col-xs-8">
-            <input type="text" placeholder="指定看守器" name="guard_name" class="form-control" value="{{ $role->guard_name }}" autocomplete="off" />
+            <select name="guard_name" class="form-control">
+                @foreach ($guards as $guard)
+                <option @if ($role->guard_name == $guard) selected @endif value="{{ $guard }}">{{ $guard }}</option>
+                @endforeach
+            </select>
         </div>
     </div>
     <div class="form-group">

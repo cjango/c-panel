@@ -3,6 +3,7 @@
 namespace cjango\CPanel\Controllers;
 
 use cjango\CPanel\Models\Admin;
+use cjango\CPanel\Requests\AdminRequest;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -22,7 +23,7 @@ class AdminController extends Controller
         return view('CPanel::admins.create');
     }
 
-    public function store(Request $request)
+    public function store(AdminRequest $request)
     {
         if (Admin::create($request->all())) {
             return $this->success();
@@ -33,10 +34,10 @@ class AdminController extends Controller
 
     public function edit(Admin $admin)
     {
-        return view('CPanel::Admins.edit', compact('admin'));
+        return view('CPanel::admins.edit', compact('admin'));
     }
 
-    public function update(Request $request, Admin $admin)
+    public function update(AdminRequest $request, Admin $admin)
     {
         if ($admin->update($request->all())) {
             return $this->success();
