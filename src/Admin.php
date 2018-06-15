@@ -45,7 +45,6 @@ class Admin
                 $router->get('auth/logout', 'AuthController@logout');
                 $router->get('/', 'IndexController@index');
                 $router->get('password', 'IndexController@password');
-                $router->get('dashboard', 'IndexController@dashboard');
 
                 $router->resource('admins', 'AdminController');
                 $router->match(['get', 'post'], 'menus/{pid}/sort', 'MenusController@sort')->name('menus.sort');

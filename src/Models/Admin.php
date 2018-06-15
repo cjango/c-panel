@@ -33,4 +33,14 @@ class Admin extends Authenticatable
     {
         return $this->hasMany(AdminOperationLog::class);
     }
+
+    public function logins()
+    {
+        return $this->hasMany(AdminLogin::class);
+    }
+
+    public function lastLogin()
+    {
+        return $this->hasOne(AdminLogin::class)->latest()->withDefault();
+    }
 }

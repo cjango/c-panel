@@ -31,6 +31,7 @@ class LogOperation
     private function inExceptArray($request)
     {
         foreach (config('cpanel.logs.except') as $except) {
+            $except = admin_url($except);
             if ($except !== '/') {
                 $except = trim($except, '/');
             }

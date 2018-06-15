@@ -38,6 +38,9 @@ class ServiceProvider extends LaravelServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishes([__DIR__ . '/../config/cpanel.php' => config_path('cpanel.php')]);
+            $this->publishes([__DIR__ . '/../config/captcha.php' => config_path('captcha.php')]);
+            $this->publishes([__DIR__ . '/../config/permission.php' => config_path('permission.php')]);
+
             $this->publishes([__DIR__ . '/../resources/assets' => public_path('assets/cpanel')]);
             $this->publishes([__DIR__ . '/../database/migrations' => database_path('migrations')]);
         }

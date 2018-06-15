@@ -29,6 +29,9 @@ class AuthController extends Controller
             ];
             $remember = $request->remember ?: false;
             if (Admin::attempt($certificates, $remember)) {
+                Admin::user()->logins()->create([
+                    'login_ip' => $request->ip(),
+                ]);
                 return $this->success('登录成功', admin_url());
             } else {
                 return $this->error('用户名或密码错误');

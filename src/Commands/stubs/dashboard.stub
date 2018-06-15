@@ -1,0 +1,6 @@
+@extends('CPanel::layouts.app')
+
+@section('content')
+<h1>Dashboard</h1>
+<a href="http://tpl.cjango.com/" target="_blank">模板</a>
+@endsection

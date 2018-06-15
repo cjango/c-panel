@@ -6,45 +6,60 @@
 <div class="ibox">
     <div class="ibox-content">
         <div class="row">
-            <form action="{{ url()->current() }}" class="form-inline pull-right" method="get" accept-charset="utf-8">
-                <div class="input-group">
-                    <input type="text" placeholder="请输入用户名" name="keyword" class="input-sm form-control" value="{{ Request::get('keyword') }}" />
-                    <span class="input-group-btn">
-                        <button type="submit" class="btn btn-sm btn-primary"> 搜索</button>
-                    </span>
-                </div>
-            </form>
+            <div class="col-sm-4 m-b">
+                <a class="btn btn-sm btn-primary" data-toggle="layer" data-height="510" href="{{ route('CPanel.admins.create') }}">
+                    <i class="fa fa-plus"></i>
+                    新增用户
+                </a>
+            </div>
+            <div class="col-sm-8 m-b">
+                <form action="{{ url()->current() }}" class="form-inline pull-right" method="get" accept-charset="utf-8">
+                    <div class="input-group">
+                        <input type="text" placeholder="请输入用户名" name="keyword" class="input-sm form-control" value="{{ Request::get('keyword') }}" />
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-sm btn-primary"> 搜索</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
         </div>
         <div class="table-responsive">
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th width="50">序号</th>
-                        <th width="100">用户</th>
-                        <th width="100">Path</th>
-                        <th width="60">Method</th>
-                        <th width="100">IP</th>
-                        <th>Input</th>
-                        <th width="135">创建时间</th>
+                        <th width="50">编号</th>
+                        <th width="100">用户名</th>
+                        <th width="100">昵称</th>
+                        <th></th>
+                        <th width="135">注册时间</th>
+                        <th width="50">登录</th>
+                        <th width="135">上次登录</th>
+                        <th width="120">上次登录IP</th>
+                        <th width="80"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($logs as $log)
+                    @foreach ($admins as $admin)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $log->administrator->username }}</td>
-                        <td>{{ $log->path }}</td>
-                        <td>{!! $log->method !!}</td>
-                        <td>{{ $log->ip }}</td>
-                        <td>{{ $log->input }}</td>
-                        <td>{{ $log->created_at }}</td>
+                        <td>{{ $admin->id }}</td>
+                        <td>{{ $admin->username }}</td>
+                        <td>{{ $admin->nickname }}</td>
+                        <td></td>
+                        <td>{{ $admin->created_at }}</td>
+                        <td>{{ $admin->logins_count }}</td>
+                        <td>{{ $admin->lastLogin->login_ip }}</td>
+                        <td>{{ $admin->lastLogin->created_at }}</td>
+                        <td>
+                            <a href="" title="编辑">编辑</a>
+                            <a href="" title="删除">删除</a>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
         <div class="text-right">
-            {{ $logs->links() }}
+            {{ $admins->links() }}
         </div>
     </div>
 </div>

@@ -13,7 +13,7 @@ class AdminController extends Controller
         $keyword = $request->keyword;
         $admins  = Admin::when($keyword, function ($query) use ($keyword) {
             return $query->where('username', 'like', "%{$keyword}%");
-        })->paginate();
+        })->with('lastLogin')->withCount('logins')->paginate();
         return view('CPanel::admins.index', compact('admins'));
     }
 

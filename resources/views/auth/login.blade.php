@@ -21,7 +21,7 @@
 <body>
     <div class="mask"></div>
     <div class="main">
-        <h1><span style="font-size: 84px;">{{ config('app.name', '') }} </span><span style="font-size:20px;">system</span></h1>
+        <h1><span style="font-size: 84px;">{{ config('cpanel.title', '') }} </span><span style="font-size:20px;">system</span></h1>
         <div class="enter">
             <h2 class="animated">Click&nbsp;&nbsp;Here&nbsp;&nbsp;To&nbsp;&nbsp;Login</h2>
             <form action="{{ admin_url('auth/login') }}" class="layui-form animated bounceInLeft" method="post">
@@ -77,7 +77,7 @@
                     }
                 },
                 password: [/^[\S]{4,20}$/, '密码应在4-20位之间'],
-                verify: [/^[\S]{5}$/, '验证码长度有误']
+                verify: [/^[\S]{4}$/, '验证码长度有误']
             });
             form.on('submit(login)', function(data) {
                 layer.load(2);

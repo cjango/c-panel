@@ -1,15 +1,21 @@
 <?php
 
+/**
+ * 后台默认配置
+ */
 return [
 
-    'title' => 'CS.Admin',
+    'title'     => 'CS.Admin',
 
-    'route' => [
+    'directory' => app_path('Admin'),
+
+    'route'     => [
         'prefix'     => 'admin',
         'middleware' => ['web', 'cpanel'],
+        'namespace'  => 'App\\Admin\\Controllers',
     ],
 
-    'auth'  => [
+    'auth'      => [
         'guards'    => [
             'cpanel' => [
                 'driver'   => 'session',
@@ -25,14 +31,14 @@ return [
         ],
     ],
 
-    'logs'  => [
+    'logs'      => [
         'enable' => true,
         'except' => [
-            'admin/',
-            'admin/dashboard',
-            'admin/password',
-            'admin/ueditor',
-            'admin/logs*',
+            '/',
+            'dashboard',
+            'password',
+            'ueditor',
+            'logs*',
         ],
     ],
 ];
