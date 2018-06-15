@@ -49,9 +49,9 @@ class ServiceProvider extends LaravelServiceProvider
     public function register()
     {
         // 加载默认配置
-        $this->mergeConfigFrom(
-            __DIR__ . '/../config/cpanel.php', 'cpanel'
-        );
+        $this->mergeConfigFrom(__DIR__ . '/../config/cpanel.php', 'cpanel');
+        $this->mergeConfigFrom(__DIR__ . '/../config/captcha.php', 'captcha');
+        $this->mergeConfigFrom(__DIR__ . '/../config/permission.php', 'permission');
         // 载入用户认证机制
         $this->loadAdminAuthConfig();
         // 注册中间件

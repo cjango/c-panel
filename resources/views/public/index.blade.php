@@ -57,7 +57,7 @@
 
             <div class="footer">
                 <div class="pull-right">
-                    &copy; 2010-{{ date('Y') }}  V 1.0
+                    &copy; 2010-{{ date('Y') }}  V {{ config('cpanel.version') }}
                 </div>
             </div>
         </div>
