@@ -5,9 +5,9 @@
  */
 return [
 
-    'version'   => '0.1.6',
+    'version'   => '0.1.12',
 
-    'title'     => 'CS.Admin',
+    'title'     => 'C.Admin',
 
     'directory' => app_path('Admin'),
 
