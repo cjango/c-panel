@@ -39,7 +39,7 @@
                     </thead>
                     <tbody>
                         @foreach ($roles as $role)
-                        <tr class="edit" data-url="{{ route('CPanel.roles.edit', $role) }}">
+                        <tr>
                             <td>{{ $role->id }}</td>
                             <td>{{ $role->name }}</td>
                             <td>{{ $role->guard_name }}</td>

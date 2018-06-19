@@ -47,9 +47,10 @@ class Admin
                 $router->get('password', 'IndexController@password');
 
                 $router->resource('admins', 'AdminController');
-                $router->match(['get', 'post'], 'menus/{pid}/sort', 'MenusController@sort')->name('menus.sort');
+                $router->match(['get', 'post'], 'menus/{pid}/sort', 'MenuController@sort')->name('menus.sort');
                 $router->resource('menus', 'MenuController');
                 $router->resource('roles', 'RoleController');
+                $router->resource('permissions', 'PermissionController');
                 $router->get('logs', 'LogController@index');
             });
     }

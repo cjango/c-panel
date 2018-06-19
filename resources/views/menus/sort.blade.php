@@ -1,6 +1,6 @@
 @extends('CPanel::layouts.app')
 
-@section('title', 'menu - sort')
+@section('title', 'menus - sort')
 
 @section('content')
 <div class="dd">

@@ -40,7 +40,7 @@
                         </tr>
                         <tr>
                             <td>Queue driver</td>
-                            <td>{{ config('queue.default') }}</td>
+                            <td>{{ config('queue.driver') }}</td>
                         </tr>
                         <tr>
                             <td>Timezone</td>
@@ -68,7 +68,7 @@
                     <tbody>
                         <tr>
                             <td>模板库地址</td>
-                            <td><a href="http://tpl.cjango.com/" target="_blank">http://tpl.cjango.com</a></td>
+                            <td><a href="http://tpl.cjango.com/" target="_blank">tpl.cjango.com</a></td>
                         </tr>
                         <tr>
                             <td>Laravel文档</td>

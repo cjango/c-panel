@@ -1,6 +1,6 @@
 @extends('CPanel::layouts.app')
 
-@section('title', 'menu - edit')
+@section('title', 'menus - edit')
 
 @section('css')
 <link rel="stylesheet" href="{{ admin_assets('css/plugins/iCheck/custom.css') }}" />
